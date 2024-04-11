@@ -8,7 +8,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(
-  theme => ({
+  (theme) => ({
     root: {
       padding: '16px 24px 16px 24px',
       fontFamily: 'Roboto',
@@ -46,7 +46,7 @@ const TableViewCol = ({ columns, options, components = {}, onColumnUpdate, updat
   const textLabels = options.textLabels.viewColumns;
   const CheckboxComponent = components.Checkbox || Checkbox;
 
-  const handleColChange = index => {
+  const handleColChange = (index) => {
     onColumnUpdate(index);
   };
 

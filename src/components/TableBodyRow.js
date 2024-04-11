@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import TableRow from '@material-ui/core/TableRow';
 import { withStyles } from '@material-ui/core/styles';
 
-const defaultBodyRowStyles = theme => ({
+const defaultBodyRowStyles = (theme) => ({
   root: {
     // material v4
     '&.Mui-selected': {
@@ -74,7 +74,8 @@ class TableBodyRow extends React.Component {
           className,
         )}
         selected={rowSelected}
-        {...rest}>
+        {...rest}
+      >
         {this.props.children}
       </TableRow>
     );

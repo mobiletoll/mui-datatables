@@ -12,7 +12,8 @@ export default function ExpandButton(props) {
           onClick={props.onExpand}
           style={{ padding: 0 }}
           disabled={props.expandableRowsHeader === false}
-          className={props.buttonClass}>
+          className={props.buttonClass}
+        >
           <Remove id="expandable-button" className={props.iconIndeterminateClass} />
         </IconButton>
       ) : (
@@ -20,7 +21,8 @@ export default function ExpandButton(props) {
           onClick={props.onExpand}
           style={{ padding: 0 }}
           disabled={props.expandableRowsHeader === false}
-          className={props.buttonClass}>
+          className={props.buttonClass}
+        >
           <KeyboardArrowRight id="expandable-button" className={props.iconClass} />
         </IconButton>
       )}

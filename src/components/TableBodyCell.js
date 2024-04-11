@@ -4,7 +4,7 @@ import TableCell from '@material-ui/core/TableCell';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(
-  theme => ({
+  (theme) => ({
     root: {},
     cellHide: {
       display: 'none',
@@ -95,22 +95,12 @@ const useStyles = makeStyles(
 
 function TableBodyCell(props) {
   const classes = useStyles();
-  const {
-    children,
-    colIndex,
-    columnHeader,
-    options,
-    dataIndex,
-    rowIndex,
-    className,
-    print,
-    tableId,
-    ...otherProps
-  } = props;
+  const { children, colIndex, columnHeader, options, dataIndex, rowIndex, className, print, tableId, ...otherProps } =
+    props;
   const onCellClick = options.onCellClick;
 
   const handleClick = useCallback(
-    event => {
+    (event) => {
       onCellClick(children, { colIndex, rowIndex, dataIndex, event });
     },
     [onCellClick, children, colIndex, rowIndex, dataIndex],
@@ -144,7 +134,8 @@ function TableBodyCell(props) {
           'datatables-noprint': !print,
         },
         className,
-      )}>
+      )}
+    >
       {columnHeader}
     </div>,
     <div
@@ -165,7 +156,8 @@ function TableBodyCell(props) {
           'datatables-noprint': !print,
         },
         className,
-      )}>
+      )}
+    >
       {typeof children === 'function' ? children(dataIndex, rowIndex) : children}
     </div>,
   ];
@@ -202,7 +194,8 @@ function TableBodyCell(props) {
         },
         className,
       )}
-      {...otherProps}>
+      {...otherProps}
+    >
       {innerCells}
     </TableCell>
   );

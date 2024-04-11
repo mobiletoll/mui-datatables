@@ -7,7 +7,7 @@ import 'prismjs/components/prism-bash';
 import Paper from '@material-ui/core/Paper';
 import { withStyles } from '@material-ui/core/styles';
 
-const styles = theme => ({});
+const styles = (theme) => ({});
 
 class CodeSnippet extends React.Component {
   static propTypes = {

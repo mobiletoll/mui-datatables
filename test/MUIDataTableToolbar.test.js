@@ -12,7 +12,7 @@ import TableSearch from '../src/components/TableSearch';
 import TableToolbar from '../src/components/TableToolbar';
 import getTextLabels from '../src/textLabels';
 
-describe('<TableToolbar />', function() {
+describe('<TableToolbar />', function () {
   let data;
   let columns;
   let options;
