@@ -9,7 +9,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { getPageValue } from '../utils';
 
 const useStyles = makeStyles(
-  theme => ({
+  (theme) => ({
     root: {},
     tableCellContainer: {
       padding: '0px 24px 0px 24px',
@@ -37,7 +37,7 @@ const useStyles = makeStyles(
 function TablePagination(props) {
   const classes = useStyles();
 
-  const handleRowChange = event => {
+  const handleRowChange = (event) => {
     props.changeRowsPerPage(event.target.value);
   };
 

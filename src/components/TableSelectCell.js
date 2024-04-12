@@ -6,7 +6,7 @@ import TableCell from '@material-ui/core/TableCell';
 import { withStyles } from '@material-ui/core/styles';
 import ExpandButton from './ExpandButton';
 
-const defaultSelectCellStyles = theme => ({
+const defaultSelectCellStyles = (theme) => ({
   root: {
     '@media print': {
       display: 'none',
@@ -120,7 +120,7 @@ class TableSelectCell extends React.Component {
 
     let refProp = {};
     if (setHeadCellRef) {
-      refProp.ref = el => {
+      refProp.ref = (el) => {
         setHeadCellRef(0, 0, el);
       };
     }

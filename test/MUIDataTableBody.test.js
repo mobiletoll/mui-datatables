@@ -7,7 +7,7 @@ import TableBody from '../src/components/TableBody';
 import TableSelectCell from '../src/components/TableSelectCell';
 import Checkbox from '@material-ui/core/Checkbox';
 
-describe('<TableBody />', function() {
+describe('<TableBody />', function () {
   let data;
   let displayData;
   let columns;
@@ -261,10 +261,7 @@ describe('<TableBody />', function() {
       />,
     );
 
-    mountWrapper
-      .find('#MUIDataTableBodyRow-2')
-      .first()
-      .simulate('click');
+    mountWrapper.find('#MUIDataTableBodyRow-2').first().simulate('click');
 
     const expectedResult = { index: 2, dataIndex: 2 };
     assert.deepEqual(selectedRowData, expectedResult);
@@ -276,7 +273,7 @@ describe('<TableBody />', function() {
     const options = {
       selectableRows: true,
       selectableRowsOnClick: true,
-      isRowSelectable: dataIndex => (dataIndex === 2 ? false : true),
+      isRowSelectable: (dataIndex) => (dataIndex === 2 ? false : true),
     };
     const selectRowUpdate = (_, data) => (selectedRowData = data);
     const toggleExpandRow = spy();
@@ -298,10 +295,7 @@ describe('<TableBody />', function() {
       />,
     );
 
-    mountWrapper
-      .find('#MUIDataTableBodyRow-2')
-      .first()
-      .simulate('click');
+    mountWrapper.find('#MUIDataTableBodyRow-2').first().simulate('click');
 
     assert.isUndefined(selectedRowData);
     assert.strictEqual(toggleExpandRow.callCount, 0);
@@ -317,7 +311,7 @@ describe('<TableBody />', function() {
         </tr>
       ),
       expandableRowsOnClick: true,
-      isRowExpandable: dataIndex => (dataIndex === 2 ? false : true),
+      isRowExpandable: (dataIndex) => (dataIndex === 2 ? false : true),
     };
     const toggleExpandRow = spy((_, data) => (expandedRowData = data));
 
@@ -337,10 +331,7 @@ describe('<TableBody />', function() {
       />,
     );
 
-    mountWrapper
-      .find('#MUIDataTableBodyRow-2')
-      .first()
-      .simulate('click');
+    mountWrapper.find('#MUIDataTableBodyRow-2').first().simulate('click');
 
     assert.isUndefined(expandedRowData);
     assert.strictEqual(toggleExpandRow.callCount, 0);
@@ -377,10 +368,7 @@ describe('<TableBody />', function() {
       />,
     );
 
-    mountWrapper
-      .find('#MUIDataTableBodyRow-2')
-      .first()
-      .simulate('click');
+    mountWrapper.find('#MUIDataTableBodyRow-2').first().simulate('click');
 
     assert.isUndefined(selectedRowData);
     assert.strictEqual(toggleExpandRow.callCount, 0);
@@ -417,10 +405,7 @@ describe('<TableBody />', function() {
       />,
     );
 
-    mountWrapper
-      .find('#MUIDataTableBodyRow-1')
-      .first()
-      .simulate('click');
+    mountWrapper.find('#MUIDataTableBodyRow-1').first().simulate('click');
 
     assert.isDefined(selectedRowData);
     assert.strictEqual(toggleExpandRow.callCount, 0);
@@ -436,9 +421,9 @@ describe('<TableBody />', function() {
         </tr>
       ),
       expandableRowsOnClick: true,
-      isRowExpandable: dataIndex => (dataIndex === 2 ? true : false),
+      isRowExpandable: (dataIndex) => (dataIndex === 2 ? true : false),
     };
-    const toggleExpandRow = spy(data => (expandedRowData = data));
+    const toggleExpandRow = spy((data) => (expandedRowData = data));
 
     const mountWrapper = mount(
       <TableBody
@@ -456,10 +441,7 @@ describe('<TableBody />', function() {
       />,
     );
 
-    mountWrapper
-      .find('#MUIDataTableBodyRow-2')
-      .first()
-      .simulate('click');
+    mountWrapper.find('#MUIDataTableBodyRow-2').first().simulate('click');
 
     assert.isDefined(expandedRowData);
     assert.strictEqual(toggleExpandRow.callCount, 1);
@@ -469,7 +451,7 @@ describe('<TableBody />', function() {
     let expandedRowData;
     const options = { selectableRows: true, expandableRows: true, expandableRowsOnClick: true };
     const selectRowUpdate = spy();
-    const toggleExpandRow = data => (expandedRowData = data);
+    const toggleExpandRow = (data) => (expandedRowData = data);
 
     const mountWrapper = mount(
       <TableBody
@@ -488,10 +470,7 @@ describe('<TableBody />', function() {
       />,
     );
 
-    mountWrapper
-      .find('#MUIDataTableBodyRow-2')
-      .first()
-      .simulate('click');
+    mountWrapper.find('#MUIDataTableBodyRow-2').first().simulate('click');
 
     const expectedResult = { index: 2, dataIndex: 2 };
     assert.deepEqual(expandedRowData, expectedResult);
@@ -508,7 +487,7 @@ describe('<TableBody />', function() {
       expandableRowsOnClick: true,
     };
     const selectRowUpdate = (type, data) => (selectedRowData = data);
-    const toggleExpandRow = data => (expandedRowData = data);
+    const toggleExpandRow = (data) => (expandedRowData = data);
 
     const mountWrapper = mount(
       <TableBody
@@ -527,10 +506,7 @@ describe('<TableBody />', function() {
       />,
     );
 
-    mountWrapper
-      .find('#MUIDataTableBodyRow-2')
-      .first()
-      .simulate('click');
+    mountWrapper.find('#MUIDataTableBodyRow-2').first().simulate('click');
 
     const expectedResult = { index: 2, dataIndex: 2 };
     assert.deepEqual(selectedRowData, expectedResult);
@@ -559,11 +535,7 @@ describe('<TableBody />', function() {
       />,
     );
 
-    mountWrapper
-      .find('TableSelectCell')
-      .first()
-      .find('input')
-      .simulate('click');
+    mountWrapper.find('TableSelectCell').first().find('input').simulate('click');
 
     assert.strictEqual(options.onRowClick.callCount, 0);
   });
@@ -590,10 +562,7 @@ describe('<TableBody />', function() {
       />,
     );
 
-    mountWrapper
-      .find('TableSelectCell')
-      .first()
-      .simulate('click');
+    mountWrapper.find('TableSelectCell').first().simulate('click');
 
     assert.strictEqual(options.onRowClick.callCount, 0);
   });
@@ -620,10 +589,7 @@ describe('<TableBody />', function() {
       />,
     );
 
-    mountWrapper
-      .find('#MUIDataTableBodyRow-2')
-      .first()
-      .simulate('click');
+    mountWrapper.find('#MUIDataTableBodyRow-2').first().simulate('click');
 
     assert.strictEqual(options.onRowClick.callCount, 1);
     assert(options.onRowClick.calledWith(data[2], { rowIndex: 2, dataIndex: 2 }));
@@ -651,10 +617,7 @@ describe('<TableBody />', function() {
       />,
     );
 
-    const props = mountWrapper
-      .find('#MUIDataTableBodyRow-1')
-      .first()
-      .props();
+    const props = mountWrapper.find('#MUIDataTableBodyRow-1').first().props();
 
     assert.strictEqual(props.className, 'testClass');
     assert.isAtLeast(options.setRowProps.callCount, 1);
@@ -683,10 +646,7 @@ describe('<TableBody />', function() {
       />,
     );
 
-    const props = mountWrapper
-      .find('#MUIDataTableBodyRow-1')
-      .first()
-      .props();
+    const props = mountWrapper.find('#MUIDataTableBodyRow-1').first().props();
 
     assert.notEqual(props.className, 'testClass');
     assert.isAtLeast(options.setRowProps.callCount, 1);

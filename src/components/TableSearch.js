@@ -7,7 +7,7 @@ import ClearIcon from '@material-ui/icons/Clear';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(
-  theme => ({
+  (theme) => ({
     main: {
       display: 'flex',
       flex: '1 0 auto',
@@ -32,11 +32,11 @@ const useStyles = makeStyles(
 const TableSearch = ({ options, searchText, onSearch, onHide }) => {
   const classes = useStyles();
 
-  const handleTextChange = event => {
+  const handleTextChange = (event) => {
     onSearch(event.target.value);
   };
 
-  const onKeyDown = event => {
+  const onKeyDown = (event) => {
     if (event.key === 'Escape') {
       onHide();
     }

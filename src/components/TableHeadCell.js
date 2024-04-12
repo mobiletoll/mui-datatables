@@ -10,7 +10,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { useDrag } from 'react-dnd';
 
 const useStyles = makeStyles(
-  theme => ({
+  (theme) => ({
     root: {},
     fixedHeader: {
       position: 'sticky',
@@ -87,7 +87,7 @@ const TableHeadCell = ({
 
   const classes = useStyles();
 
-  const handleKeyboardSortInput = e => {
+  const handleKeyboardSortInput = (e) => {
     if (e.key === 'Enter') {
       toggleSort(index);
     }
@@ -119,7 +119,7 @@ const TableHeadCell = ({
       colIndex: index,
       headCellRefs: draggableHeadCellRefs,
     },
-    begin: monitor => {
+    begin: (monitor) => {
       setTimeout(() => {
         setHintTooltipOpen(false);
         setSortTooltipOpen(false);
@@ -130,7 +130,7 @@ const TableHeadCell = ({
     end: (item, monitor) => {
       setDragging(false);
     },
-    collect: monitor => {
+    collect: (monitor) => {
       return {
         opacity: monitor.isDragging() ? 1 : 0,
       };
@@ -186,7 +186,7 @@ const TableHeadCell = ({
 
   return (
     <TableCell
-      ref={ref => {
+      ref={(ref) => {
         drop(ref);
         setCellRef && setCellRef(index + 1, colPosition + 1, ref);
       }}
@@ -196,7 +196,8 @@ const TableHeadCell = ({
       data-colindex={index}
       data-tableid={tableId}
       onMouseDown={closeTooltip}
-      {...otherProps}>
+      {...otherProps}
+    >
       {options.sort && sort ? (
         <span
           role="button"
@@ -205,7 +206,8 @@ const TableHeadCell = ({
           className={classes.toolButton}
           data-testid={`headcol-${index}`}
           ref={isDraggingEnabled() ? dragRef : null}
-          tabIndex={0}>
+          tabIndex={0}
+        >
           <Tooltip
             title={getTooltipTitle()}
             placement={'bottom-start'}
@@ -215,14 +217,16 @@ const TableHeadCell = ({
             classes={{
               tooltip: classes.tooltip,
               popper: classes.mypopper,
-            }}>
+            }}
+          >
             <div className={classes.sortAction}>
               <div
                 className={clsx({
                   [classes.data]: true,
                   [classes.sortActive]: sortActive,
                   [classes.dragCursor]: isDraggingEnabled(),
-                })}>
+                })}
+              >
                 {children}
               </div>
               <div className={classes.sortAction}>
@@ -253,7 +257,8 @@ const TableHeadCell = ({
                 tooltip: classes.tooltip,
                 popper: classes.mypopper,
               }}
-              enterDelay={300}>
+              enterDelay={300}
+            >
               <HelpIcon className={classes.hintIconAlone} fontSize="small" />
             </Tooltip>
           )}

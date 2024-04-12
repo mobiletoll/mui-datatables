@@ -12,16 +12,20 @@ export default function ExpandButton(props) {
           onClick={props.onExpand}
           style={{ padding: 0 }}
           disabled={props.expandableRowsHeader === false}
-          className={props.buttonClass}>
+          className={props.buttonClass}
+        >
           <Remove id="expandable-button" className={props.iconIndeterminateClass} />
+          <span style={{ display: 'none' }}>Close expanded row</span>
         </IconButton>
       ) : (
         <IconButton
           onClick={props.onExpand}
           style={{ padding: 0 }}
           disabled={props.expandableRowsHeader === false}
-          className={props.buttonClass}>
+          className={props.buttonClass}
+        >
           <KeyboardArrowRight id="expandable-button" className={props.iconClass} />
+          <span style={{ display: 'none' }}>Open expandable row</span>
         </IconButton>
       )}
     </React.Fragment>
